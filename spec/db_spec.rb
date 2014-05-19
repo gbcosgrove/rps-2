@@ -44,4 +44,28 @@ describe "db user" do
   end
 end
 
-describe "db_match"
+describe "db_match" do
+
+  before(:each) do
+    @match_id = 0
+  end
+
+end
+
+describe "db_round" do
+
+  before(:each) do
+    @game_id = 0
+  end
+
+end
+
+describe "invites" do
+
+  before(:each) do
+    @invite_id = 0
+  end
+
+end
+
+
