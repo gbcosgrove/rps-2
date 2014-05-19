@@ -1,0 +1,2 @@
+class RPS::Invites
+end
