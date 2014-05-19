@@ -16,3 +16,32 @@ it "returns a db" do
   end
 
 end
+
+describe "db user" do
+
+  before(:each) do
+    @user_id = 0
+  end
+
+  it "creates a new user with a name" do
+    # player1 = RPS::User.new("Bob")
+    # expect(player1.name).to eq("Bob")
+  end
+
+#
+
+  it "creates a new user with a unique ID" do
+    player1 = RPS::db.create_user({:name => "Randy"})
+    player2 = RPS::db.create_user({:name => "Queen Bobby"})
+    player3 = RPS::db.create_user({:name => "Greg"})
+    player4 = RPS::db.create_user({:name => "Zach"})
+
+    expect(player1.id).to eq(1)
+    expect(player2.id).to eq(2)
+    expect(player3.id).to eq(3)
+    expect(player4.id).to eq(4)
+
+  end
+end
+
+describe "db_match"

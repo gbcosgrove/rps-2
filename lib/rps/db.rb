@@ -1,21 +1,41 @@
 class RPS::DB
 
+attr_reader :users, :matches, :games, :invites
+
 def initialize
+  @users = {}
+  @user_id = 0
+  @matches = {}
+  @match_id = 0
+  @games = {}
+  @game_id = 0
+  @invites = {}
+  @invite_id = 0
 end
 
 
 # CRUD Methods
 #User
-def create_user
+def create_user(data)
+  @user_id += 1
+  @users[:id] = @user_id
+  @users[data[:id]] = data
+  data[:id] = @user_id
+  build_user(data)
 end
 
-def retrieve_user
+def retrieve_user(id)
+
 end
 
-def update_user
+def update_user(id, data)
 end
 
-def destroy_user
+def destroy_user(id)
+end
+
+def build_user(data)
+  RPS::User.new(data[:name], data[:id])
 end
 
 #Match
@@ -31,6 +51,9 @@ end
 def destroy_match
 end
 
+def build_match
+end
+
 #Round
 def create_round
 end
@@ -44,6 +67,9 @@ end
 def destroy_round
 end
 
+def build_round
+end
+
 #Invites
 def create_invites
 end
@@ -55,6 +81,9 @@ def update_invites
 end
 
 def destroy_invites
+end
+
+def build_invites
 end
 
 

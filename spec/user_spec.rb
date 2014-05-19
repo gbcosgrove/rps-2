@@ -6,7 +6,7 @@ describe "user" do
   end
 
   it "initializes with a name" do
-    player1 = RPS::User.new("Gary")
+    player1 = RPS::User.new("Gary", nil)
     expect(player1.name).to eq("Gary")
   end
 
