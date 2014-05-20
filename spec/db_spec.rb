@@ -43,10 +43,11 @@ describe "db user" do
     expect(RPS::db.retrieve_user(2)).to eq({:name => "Queen Bobby", :id => 2})
   end
 # binding.pry
-  # it "updates a users name" do
-  #   update_user(2, "Bobby")
-  #   expect(db.users[2][:name]).to eq("Bobby")
-  # end
+  it "updates a user's name" do
+    RPS::db.update_user_name(2, "Bobby")
+    expect(RPS::db.users[2][:name]).to eq("Bobby")
+  end
+
 
   it "deletes a user" do
     RPS::db.destroy_user(2)
@@ -54,8 +55,6 @@ describe "db user" do
     RPS::db.destroy_user(4)
     expect(RPS.db.users).to eq({1=>{:name=>"Randy", :id=>1}})
   end
-
-
 
 end
 

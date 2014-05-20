@@ -31,6 +31,11 @@ def retrieve_user(id)
   end
 end
 
+def update_user_name(id, name)
+  user = retrieve_user(id)
+  user[:name] = name
+end
+
 def destroy_user(id)
   @users.delete(id)
 end
@@ -52,7 +57,8 @@ end
 def destroy_match
 end
 
-def build_match
+def build_match(data)
+  RPS::Match.new(data)
 end
 
 #Round
