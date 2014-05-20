@@ -41,7 +41,7 @@ def destroy_user(id)
 end
 
 def build_user(data)
-  RPS::User.new(data[:name], data[:id])
+  RPS::User.new({:name => data[:name], :id=>data[:id]})
 end
 
 #Match
