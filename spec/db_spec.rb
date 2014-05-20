@@ -19,29 +19,44 @@ end
 
 describe "db user" do
 
-  before(:each) do
-    @user_id = 0
-  end
-
-  it "creates a new user with a name" do
-    # player1 = RPS::User.new("Bob")
-    # expect(player1.name).to eq("Bob")
-  end
-
-#
-
-  it "creates a new user with a unique ID" do
     player1 = RPS::db.create_user({:name => "Randy"})
     player2 = RPS::db.create_user({:name => "Queen Bobby"})
     player3 = RPS::db.create_user({:name => "Greg"})
     player4 = RPS::db.create_user({:name => "Zach"})
 
+  it "creates a new user with a name" do
+    expect(player1.name).to eq("Randy")
+  end
+
+  it "creates a new user with a unique ID" do
     expect(player1.id).to eq(1)
     expect(player2.id).to eq(2)
     expect(player3.id).to eq(3)
     expect(player4.id).to eq(4)
-
   end
+
+  it "stores users in a hash" do
+    expect(RPS::db.users).to be_a(Hash)
+  end
+
+  it "retrieves all users" do
+    expect(RPS::db.retrieve_users).to be_a(Hash)
+  end
+
+# binding.pry
+
+  # it "updates a users name" do
+  #   update_user(2, "Bobby")
+  #   expect(db.users[2][:name]).to eq("Bobby")
+  # end
+
+  it "deletes a user" do
+    RPS::db.destroy_user(4)
+    expect(player4).to eq(nil)
+  end
+
+binding.pry
+
 end
 
 describe "db_match" do

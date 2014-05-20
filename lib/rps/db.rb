@@ -1,6 +1,7 @@
-class RPS::DB
+ class RPS::DB
 
 attr_reader :users, :matches, :games, :invites
+
 
 def initialize
   @users = {}
@@ -18,20 +19,17 @@ end
 #User
 def create_user(data)
   @user_id += 1
-  @users[:id] = @user_id
-  @users[data[:id]] = data
   data[:id] = @user_id
+  @users[@user_id] = data
   build_user(data)
 end
 
-def retrieve_user(id)
-
-end
-
-def update_user(id, data)
+def retrieve_users
+  @users
 end
 
 def destroy_user(id)
+  @users.delete(id)
 end
 
 def build_user(data)
