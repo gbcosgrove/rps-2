@@ -24,8 +24,11 @@ def create_user(data)
   build_user(data)
 end
 
-def retrieve_users
-  @users
+def retrieve_user(id)
+  @users.select do |user|
+    @users[:id] == user[id]
+    return @users[id]
+  end
 end
 
 def destroy_user(id)

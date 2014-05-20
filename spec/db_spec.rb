@@ -39,23 +39,23 @@ describe "db user" do
     expect(RPS::db.users).to be_a(Hash)
   end
 
-  it "retrieves all users" do
-    expect(RPS::db.retrieve_users).to be_a(Hash)
+  it "retrieves user name by id" do
+    expect(RPS::db.retrieve_user(2)).to eq({:name => "Queen Bobby", :id => 2})
   end
-
 # binding.pry
-
   # it "updates a users name" do
   #   update_user(2, "Bobby")
   #   expect(db.users[2][:name]).to eq("Bobby")
   # end
 
   it "deletes a user" do
+    RPS::db.destroy_user(2)
+    RPS::db.destroy_user(3)
     RPS::db.destroy_user(4)
-    expect(player4).to eq(nil)
+    expect(RPS.db.users).to eq({1=>{:name=>"Randy", :id=>1}})
   end
 
-binding.pry
+
 
 end
 
