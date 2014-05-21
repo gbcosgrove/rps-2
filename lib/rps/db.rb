@@ -1,6 +1,6 @@
 class RPS::DB
 
-attr_reader :users, :matches, :games, :invites
+attr_reader :users, :matches, :games, :invites, :user_id
 
 
   def initialize

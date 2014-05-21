@@ -7,10 +7,10 @@ class RPS::TerminalClient
   def self.create_user
     puts "What's your name?"
     name = gets.chomp.capitalize
-    result = RPS::CreateUser.new.run(name: name)
+    result = RPS::CreateNewUser.new.run(name: name)
     if result[:success?]
       puts "Welcome #{name}!"
-      puts "Your user id is #{result[:user].id}"
+
     elsif !result[:succes?]
       puts "Sorry, I didn't understand that."
       puts "This is your error: #{result[:error]}"
