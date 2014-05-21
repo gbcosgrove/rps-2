@@ -60,8 +60,46 @@ end
 
 describe "db_match" do
 
+  db = RPS::DB.new
+
+  match1 = RPS::db.create_match()
+  match2 = RPS::db.create_match()
+  match3 = RPS::db.create_match()
+
   before(:each) do
     @match_id = 0
+  end
+
+  it "creates a new match with a unique ID" do
+    expect(match1.id).to eq(1)
+    expect(match2.id).to eq(2)
+    expect(match3.id).to eq(3)
+  end
+
+  xit "stores match as a hash" do
+    expect(db.matches).to be_a(Hash)
+  end
+
+  xit "creates match with default player names" do
+    expect(match1.player1).to eq("Player 1")
+    expect(match2.player2).to eq("Player 2")
+  end
+
+  xit "creates match with a default winner of nil" do
+    expect(match1.winner).to eq(nil)
+  end
+
+  xit "retrieves match by id" do
+    expect(db.matches.retrieve_match(2)).to eq(match2)
+  end
+
+  xit "updates match with id" do
+    match2.update_match(2, "Bob")
+    expect(match2.player1).to eq("Bob")
+  end
+
+  xit "destroys match with id" do
+
   end
 
 end

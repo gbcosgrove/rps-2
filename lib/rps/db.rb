@@ -1,4 +1,4 @@
- class RPS::DB
+class RPS::DB
 
 attr_reader :users, :matches, :games, :invites
 
@@ -41,7 +41,7 @@ def destroy_user(id)
 end
 
 def build_user(data)
-  RPS::User.new({:name => data[:name], :id=>data[:id]})
+  RPS::User.new(data)
 end
 
 #Match
@@ -74,7 +74,8 @@ end
 def destroy_round
 end
 
-def build_round
+def build_round(data)
+  RPS::Round.new(data)
 end
 
 #Invites
@@ -91,6 +92,7 @@ def destroy_invites
 end
 
 def build_invites
+  RPS::Invite.new(data)
 end
 
 
