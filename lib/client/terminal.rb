@@ -21,15 +21,13 @@ class RPS::TerminalClient
   def self.move
     puts "Rock, paper, or scissors?"
     move = gets.chomp.downcase
-    result = RPS::GameMove.new.run(move: move)
+    result = RPS::UserMove.new.run(move: move)
     if !result[:success?]
       puts "Sorry, I didn't get that."
       puts result[:error]
     else
       puts "Your move was: #{move}"
     end
-
-
   end
 
 
