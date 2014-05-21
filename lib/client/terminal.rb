@@ -17,6 +17,7 @@ class RPS::TerminalClient
     else
       puts "Something is wrong with the terminal"
     end
+  end
 
   def self.move
     puts "Rock, paper, or scissors?"
